@@ -9,7 +9,14 @@ import { selectScore } from "../features/cardSlice";
 function Card() {
   const dispatch = useDispatch();
   const score = useSelector(selectScore);
-  console.log("score: ", score);
+
+  const handleUpClick = () => {
+    dispatch(increment());
+  };
+
+  const handleDownClick = () => {
+    dispatch(decrement());
+  };
 
   return (
     <CardContainer>
@@ -21,10 +28,8 @@ function Card() {
             <Subtitle>{score}</Subtitle>
           </Score>
           <RateContainer>
-            <RateUp onClick={() => dispatch(increment())}>Puan Artır</RateUp>
-            <RateDown onClick={() => dispatch(decrement())}>
-              Puan Azalt
-            </RateDown>
+            <RateUp onClick={handleUpClick}>Puan Artır</RateUp>
+            <RateDown onClick={handleDownClick}>Puan Azalt</RateDown>
           </RateContainer>
         </CardInfo>
       </CardContent>
