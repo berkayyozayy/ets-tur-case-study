@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { AiFillCloseCircle } from "react-icons/ai";
 import image from "../assets/image.png";
 
 function Card() {
@@ -18,15 +19,18 @@ function Card() {
           </RateContainer>
         </CardInfo>
       </CardContent>
+      <CloseIcon>
+        <AiFillCloseCircle />
+      </CloseIcon>
     </CardContainer>
   );
 }
 const CardContainer = styled.div`
-  max-width: 500px;
-  width: calc(100% - 50px);
+  max-width: 380px;
+  width: calc(100% - 30px);
   margin: 0 auto;
   display: flex;
-  justify-content: space-between;
+  position: relative;
   align-items: center;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 
@@ -92,6 +96,12 @@ const RateDown = styled.button`
   margin-left: 8px;
   background-color: #fff;
   color: #056bfd;
+`;
+
+const CloseIcon = styled.div`
+  position: absolute;
+  top: -6px;
+  right: -5px;
 `;
 
 export default Card;
