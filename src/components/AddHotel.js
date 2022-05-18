@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import styled from "styled-components";
 
 function AddHotel() {
-  const [show, setShow] = useState(false);
   return (
     <AddHotelContainer>
       <AddHotelHeader>
@@ -43,6 +42,7 @@ const Title = styled.h1`
 `;
 const Textarea = styled.textarea`
   resize: none;
+  outline: none;
   margin-top: 8px;
 `;
 

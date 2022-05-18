@@ -1,9 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { AiFillCloseCircle } from "react-icons/ai";
 import image from "../assets/image.png";
+import { useDispatch, useSelector } from "react-redux";
+import { increment, decrement } from "../features/cardSlice";
+import { selectScore } from "../features/cardSlice";
 
 function Card() {
+  const dispatch = useDispatch();
+  const score = useSelector(selectScore);
+  console.log("score: ", score);
+
   return (
     <CardContainer>
       <CardContent>
@@ -11,11 +18,13 @@ function Card() {
         <CardInfo>
           <Title>Voyage Hotel</Title>
           <Score>
-            <Subtitle>9.7 Puan</Subtitle>
+            <Subtitle>{score}</Subtitle>
           </Score>
           <RateContainer>
-            <RateUp>Puan Artır</RateUp>
-            <RateDown>Puan Azalt</RateDown>
+            <RateUp onClick={() => dispatch(increment())}>Puan Artır</RateUp>
+            <RateDown onClick={() => dispatch(decrement())}>
+              Puan Azalt
+            </RateDown>
           </RateContainer>
         </CardInfo>
       </CardContent>
