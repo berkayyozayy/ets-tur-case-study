@@ -5,19 +5,24 @@ import styled from "styled-components";
 function AddHotel() {
   const [item, setItem] = useState("");
 
-  const handle = () => {
+  const addLocalStorage = () => {
     localStorage.setItem("Hotel", item);
+  };
+
+  const handleInput = (e) => {
+    let inputVal = e.target.value;
+    setItem(inputVal);
   };
 
   return (
     <AddHotelContainer>
       <AddHotelHeader>
-        <AddButton onClick={handle}>+</AddButton>
+        <AddButton onClick={addLocalStorage}>+</AddButton>
         <Title>Hotel Ekle</Title>
       </AddHotelHeader>
       <Textarea
         value={item}
-        onChange={(e) => setItem(e.target.value)}
+        onChange={handleInput}
         placeholder="Hotel adı giriniz..."
       ></Textarea>
     </AddHotelContainer>
