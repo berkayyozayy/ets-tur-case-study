@@ -3,6 +3,14 @@ import styled from "styled-components";
 
 function AddHotel() {
   const [item, setItem] = useState([]);
+  const [buttonText, setButtonText] = useState("Ekle");
+
+  const handleButtonText = () => {
+    setButtonText("Eklendi");
+    setTimeout(() => {
+      setButtonText("Ekle");
+    }, 2000);
+  };
 
   const addLocalStorage = () => {
     let input = localStorage.setItem("Hotel", JSON.stringify(item));
@@ -19,7 +27,14 @@ function AddHotel() {
   return (
     <AddHotelContainer>
       <AddHotelHeader>
-        <AddButton onClick={addLocalStorage}>+</AddButton>
+        <AddButton
+          onClick={() => {
+            addLocalStorage();
+            handleButtonText();
+          }}
+        >
+          {buttonText}
+        </AddButton>
         <Title>Hotel Ekle</Title>
       </AddHotelHeader>
       <Textarea
