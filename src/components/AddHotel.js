@@ -6,7 +6,7 @@ function AddHotel() {
     <AddHotelContainer>
       <AddHotelHeader>
         <AddButton>+</AddButton>
-        <Title>Otel Ekle</Title>
+        <Title>Hotel Ekle</Title>
       </AddHotelHeader>
       <Textarea placeholder="Hotel adı giriniz..."></Textarea>
     </AddHotelContainer>

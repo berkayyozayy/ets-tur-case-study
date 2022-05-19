@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { increment, decrement } from "../features/cardSlice";
 import { selectScore } from "../features/cardSlice";
 
-function Card({ id, name, hotelScore }) {
+function Card({ name }) {
   const dispatch = useDispatch();
   const score = useSelector(selectScore);
 
@@ -31,10 +31,10 @@ function Card({ id, name, hotelScore }) {
             <RateUp onClick={handleUpClick}>Puan Artır</RateUp>
             <RateDown onClick={handleDownClick}>Puan Azalt</RateDown>
           </RateContainer>
+          <CloseIcon>
+            <AiFillCloseCircle />
+          </CloseIcon>
         </CardInfo>
-        <CloseIcon>
-          <AiFillCloseCircle />
-        </CloseIcon>
       </CardContent>
     </CardContainer>
   );
@@ -49,6 +49,7 @@ const CardContainer = styled.div`
   align-items: center;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   margin-bottom: 24px;
+  margin-top: 24px;
 
   img {
     width: 100px;

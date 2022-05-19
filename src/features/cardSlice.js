@@ -4,6 +4,7 @@ export const cardSlice = createSlice({
   name: "card",
   initialState: {
     value: 0,
+    confirmDialogIsOpen: false,
   },
   reducers: {
     increment: (state) => {
