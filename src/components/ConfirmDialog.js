@@ -14,32 +14,31 @@ function ConfirmDialog({ message, onDialog, nameProduct }) {
       }}
       onClick={() => onDialog(false)}
     >
-      <div
-        onClick={(e) => e.stopPropagation()}
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          position: "absolute",
-          top: "50%",
-          left: "50%",
-          transform: "translate(-50%,-50%)",
-          background: "white",
-          padding: "20px",
-          borderRadius: "10px",
-        }}
-      >
+      <Dialog onClick={(e) => e.stopPropagation()}>
         <Message>{message}</Message>
         <ProductName>{nameProduct}</ProductName>
         <ButtonWrapper>
           <RemoveButton onClick={() => onDialog(true)}>Hoteli Sil</RemoveButton>
           <CancelButton onClick={() => onDialog(false)}>Vazgeç</CancelButton>
         </ButtonWrapper>
-      </div>
+      </Dialog>
     </div>
   );
 }
+
+const Dialog = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+`;
 
 const Message = styled.h3`
   color: #111;
