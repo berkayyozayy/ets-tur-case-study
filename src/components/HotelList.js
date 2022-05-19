@@ -10,14 +10,14 @@ function HotelList() {
   const [dialog, setDialog] = useState({
     message: "",
     isLoading: false,
-    nameProduct: "",
+    nameHotel: "",
   });
   const idHotelRef = useRef();
-  const handleDialog = (message, isLoading, nameProduct) => {
+  const handleDialog = (message, isLoading, nameHotel) => {
     setDialog({
       message,
       isLoading,
-      nameProduct,
+      nameHotel,
     });
   };
 
@@ -78,7 +78,7 @@ function HotelList() {
       })}
       {dialog.isLoading && (
         <ConfirmDialog
-          nameProduct={dialog.nameProduct}
+          nameHotel={dialog.nameHotel}
           onDialog={areUSureDelete}
           message={dialog.message}
         />
