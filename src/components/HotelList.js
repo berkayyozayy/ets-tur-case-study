@@ -70,21 +70,9 @@ function HotelList() {
               name={hotel.name}
               hotelScore={hotel.hotelScore}
             />
-            <button
-              onClick={() => deleteHotel(hotel.id)}
-              style={{
-                maxWidth: "380px",
-                margin: "0 auto",
-                background: "red",
-                border: "none",
-                padding: "8px",
-                cursor: "pointer",
-                color: "white",
-                borderRadius: "8px",
-              }}
-            >
+            <DeleteButton onClick={() => deleteHotel(hotel.id)}>
               Delete
-            </button>
+            </DeleteButton>
           </>
         );
       })}
@@ -105,6 +93,17 @@ const List = styled.div`
   height: 100vh;
   display: flex;
   flex-direction: column;
+`;
+
+const DeleteButton = styled.button`
+  max-width: 380px;
+  margin: 0 auto;
+  background-color: red;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  color: white;
+  border-radius: 8px;
 `;
 
 export default HotelList;
