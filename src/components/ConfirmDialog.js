@@ -32,37 +32,40 @@ function ConfirmDialog({ message, onDialog, nameProduct }) {
       >
         <h3 style={{ color: "#111", fontSize: "16px" }}>{message}</h3>
         <h1 style={{ color: "blue", fontSize: "24px" }}>{nameProduct}</h1>
-        <div style={{ display: "flex", alignItems: "center" }}>
-          <button
-            onClick={() => onDialog(true)}
-            style={{
-              background: "#056bfd",
-              color: "white",
-              padding: "10px",
-              borderRadius: "8px",
-              border: "none",
-              cursor: "pointer",
-            }}
-          >
-            Hoteli Sil
-          </button>
-          <button
-            onClick={() => onDialog(false)}
-            style={{
-              background: "smoke",
-              color: "white",
-              padding: "10px",
-              marginLeft: "4px",
-              border: "none",
-              cursor: "pointer",
-            }}
-          >
-            Vazgeç
-          </button>
-        </div>
+        <ButtonWrapper>
+          <RemoveButton onClick={() => onDialog(true)}>Hoteli Sil</RemoveButton>
+          <CancelButton onClick={() => onDialog(false)}>Vazgeç</CancelButton>
+        </ButtonWrapper>
       </div>
     </div>
   );
 }
+
+const ButtonWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  margin-top: 16px;
+`;
+
+const RemoveButton = styled.button`
+  background: #056bfd;
+  color: white;
+  padding: 10px;
+  margin-left: 4px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-right: 8px;
+`;
+
+const CancelButton = styled.button`
+  background: hsl(188 78% 41%);
+  color: white;
+  padding: 10px;
+  margin-left: 4px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+`;
 
 export default ConfirmDialog;
