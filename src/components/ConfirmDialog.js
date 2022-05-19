@@ -57,7 +57,7 @@ function ConfirmDialog({ message, onDialog, nameProduct }) {
               cursor: "pointer",
             }}
           >
-            No
+            Vazgeç
           </button>
         </div>
       </div>

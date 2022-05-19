@@ -5,7 +5,6 @@ import Card from "./Card";
 import styled from "styled-components";
 import AddHotel from "./AddHotel";
 import ConfirmDialog from "./ConfirmDialog";
-import { AiFillCloseCircle } from "react-icons/ai";
 
 function HotelList() {
   const [hotels, setHotels] = useState([]);
