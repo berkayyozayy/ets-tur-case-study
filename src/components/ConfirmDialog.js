@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 function ConfirmDialog({ message, onDialog, nameProduct }) {
   return (
-    <div
+    <DialogWrapper
       style={{
         position: "fixed",
         top: "0",
@@ -22,9 +22,18 @@ function ConfirmDialog({ message, onDialog, nameProduct }) {
           <CancelButton onClick={() => onDialog(false)}>Vazgeç</CancelButton>
         </ButtonWrapper>
       </Dialog>
-    </div>
+    </DialogWrapper>
   );
 }
+
+const DialogWrapper = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  backgroundcolor: rgba(0, 0, 0, 0.5);
+`;
 
 const Dialog = styled.div`
   display: flex;
