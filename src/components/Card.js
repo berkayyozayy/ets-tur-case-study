@@ -48,6 +48,7 @@ const CardContainer = styled.div`
   position: relative;
   align-items: center;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  margin-bottom: 24px;
 
   img {
     width: 100px;
