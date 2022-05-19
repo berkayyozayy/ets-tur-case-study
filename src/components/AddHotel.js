@@ -1,12 +1,14 @@
 import React, { useState } from "react";
-
 import styled from "styled-components";
 
 function AddHotel() {
   const [item, setItem] = useState([]);
 
   const addLocalStorage = () => {
-    localStorage.setItem("Hotel", item);
+    let input = localStorage.setItem("Hotel", JSON.stringify(item));
+    if (input) {
+      setItem(input);
+    }
   };
 
   const handleInput = (e) => {
