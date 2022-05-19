@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { AiFillCloseCircle } from "react-icons/ai";
 import image from "../assets/image.png";
@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { increment, decrement } from "../features/cardSlice";
 import { selectScore } from "../features/cardSlice";
 
-function Card() {
+function Card({ id, name, hotelScore }) {
   const dispatch = useDispatch();
   const score = useSelector(selectScore);
 
@@ -23,7 +23,7 @@ function Card() {
       <CardContent>
         <img src={image} alt="hotel-card" />
         <CardInfo>
-          <Title>Voyage Hotel</Title>
+          <Title>{name}</Title>
           <Score>
             <Subtitle>{score}</Subtitle>
           </Score>
@@ -32,10 +32,10 @@ function Card() {
             <RateDown onClick={handleDownClick}>Puan Azalt</RateDown>
           </RateContainer>
         </CardInfo>
+        <CloseIcon>
+          <AiFillCloseCircle />
+        </CloseIcon>
       </CardContent>
-      <CloseIcon>
-        <AiFillCloseCircle />
-      </CloseIcon>
     </CardContainer>
   );
 }
@@ -44,6 +44,7 @@ const CardContainer = styled.div`
   width: calc(100% - 30px);
   margin: 0 auto;
   display: flex;
+  flex-direction: column;
   position: relative;
   align-items: center;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;

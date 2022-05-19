@@ -21,6 +21,4 @@ export const { increment, decrement } = cardSlice.actions;
 
 export const selectScore = (state) => state.card.value;
 
-// export const incrementScoreByOne = (state) => state.incrementScore;
-
 export default cardSlice.reducer;
