@@ -30,8 +30,8 @@ function ConfirmDialog({ message, onDialog, nameProduct }) {
           borderRadius: "10px",
         }}
       >
-        <h3 style={{ color: "#111", fontSize: "16px" }}>{message}</h3>
-        <h1 style={{ color: "blue", fontSize: "24px" }}>{nameProduct}</h1>
+        <Message>{message}</Message>
+        <ProductName>{nameProduct}</ProductName>
         <ButtonWrapper>
           <RemoveButton onClick={() => onDialog(true)}>Hoteli Sil</RemoveButton>
           <CancelButton onClick={() => onDialog(false)}>Vazgeç</CancelButton>
@@ -40,6 +40,16 @@ function ConfirmDialog({ message, onDialog, nameProduct }) {
     </div>
   );
 }
+
+const Message = styled.h3`
+  color: #111;
+  font-size: 16px;
+`;
+
+const ProductName = styled.h3`
+  color: blue;
+  font-size: 24px;
+`;
 
 const ButtonWrapper = styled.div`
   display: flex;
