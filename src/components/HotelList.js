@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
 import hotelData from "../data/data";
-
 import Card from "./Card";
 import styled from "styled-components";
 import AddHotel from "./AddHotel";
@@ -49,6 +48,12 @@ function HotelList() {
     obj["score"] = hotel.hotelScore;
     return obj;
   });
+
+  const addLocalStorage = () => {
+    localStorage.setItem("items", JSON.stringify(hotels));
+  };
+
+  addLocalStorage();
 
   useEffect(() => {
     setHotels(getHotels);

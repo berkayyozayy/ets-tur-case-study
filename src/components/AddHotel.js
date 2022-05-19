@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 
 function AddHotel() {
-  const [item, setItem] = useState("");
+  const [item, setItem] = useState([]);
 
   const addLocalStorage = () => {
     localStorage.setItem("Hotel", item);
