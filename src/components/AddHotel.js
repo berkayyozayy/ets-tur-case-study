@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
-function AddHotel() {
+function AddHotel({ updateHotelCount }) {
   const [item, setItem] = useState([]);
   const [buttonText, setButtonText] = useState("Ekle");
 
@@ -13,7 +13,12 @@ function AddHotel() {
   };
 
   const addLocalStorage = () => {
-    let input = localStorage.setItem("Hotel", JSON.stringify(item));
+    let existingItems = JSON.parse(localStorage.getItem("items"));
+    let newItem = { name: item, score: 0, id: existingItems.length + 1 };
+    // console.log("-->>>", existingItems);
+
+    existingItems.push(newItem);
+    let input = localStorage.setItem("items", JSON.stringify(existingItems));
     if (input) {
       setItem(input);
     }
@@ -31,6 +36,7 @@ function AddHotel() {
           onClick={() => {
             addLocalStorage();
             handleButtonText();
+            updateHotelCount();
           }}
         >
           {buttonText}

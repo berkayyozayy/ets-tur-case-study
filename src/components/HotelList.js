@@ -21,6 +21,8 @@ function HotelList() {
     });
   };
 
+  const [newHotel, setNewHotel] = useState(0);
+
   const deleteHotel = (id) => {
     const index = hotels.findIndex((hotel) => hotel.id === id);
 
@@ -49,19 +51,33 @@ function HotelList() {
     return obj;
   });
 
-  const addLocalStorage = () => {
-    localStorage.setItem("items", JSON.stringify(hotels));
+  const addLocalStorage = (getHotels) => {
+    let storage = JSON.parse(localStorage.getItem("items"));
+    // console.log("storage : ", storage);
+    if (storage && storage.length > 1) {
+      localStorage.setItem("items", JSON.stringify(storage));
+    } else {
+      localStorage.setItem("items", JSON.stringify(getHotels));
+    }
   };
 
-  addLocalStorage();
+  const initialHotels = (getHotels) => {
+    let storage = JSON.parse(localStorage.getItem("items"));
+    if (storage) {
+      return storage;
+    } else {
+      return hotelData;
+    }
+  };
 
   useEffect(() => {
-    setHotels(getHotels);
+    setHotels(initialHotels());
+    addLocalStorage(getHotels);
   }, []);
 
   return (
     <List>
-      <AddHotel />
+      <AddHotel updateHotelCount={() => setNewHotel(newHotel + 1)} />
       {hotels.map((hotel) => {
         return (
           <>
