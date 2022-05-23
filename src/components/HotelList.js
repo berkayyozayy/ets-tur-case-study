@@ -54,6 +54,7 @@ function HotelList() {
   const addLocalStorage = (getHotels) => {
     let storage = JSON.parse(localStorage.getItem("items"));
     // console.log("storage : ", storage);
+
     if (storage && storage.length > 1) {
       localStorage.setItem("items", JSON.stringify(storage));
     } else {
@@ -73,7 +74,7 @@ function HotelList() {
   useEffect(() => {
     setHotels(initialHotels());
     addLocalStorage(getHotels);
-  }, []);
+  }, [getHotels]);
 
   return (
     <List>
