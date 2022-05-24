@@ -62,6 +62,17 @@ function HotelList() {
     setHotels(updatedHotelList);
   };
 
+  const handleThumbsDown = (idx) => {
+    let updatedHotelList = [...hotels];
+    let obj = updatedHotelList[idx];
+    let currentScore = obj["hotelScore"];
+    if (currentScore !== 0) {
+      obj["hotelScore"] = currentScore - 1;
+    }
+    updatedHotelList[idx] = obj;
+    setHotels(updatedHotelList);
+  };
+
   return (
     <List>
       <AddHotel updateHotelList={handleAddNewHotel} />
@@ -75,6 +86,7 @@ function HotelList() {
                 index={index}
                 hotelScore={hotel.hotelScore}
                 handleThumbsUp={handleThumbsUp}
+                handleThumbsDown={handleThumbsDown}
               />
 
               <DeleteButton onClick={() => deleteHotel(hotel.id)}>
