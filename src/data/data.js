@@ -1,7 +1,7 @@
 let hotelData = [
   {
     id: 0,
-    name: "",
+    name: "test",
     hotelScore: 0,
   },
 ];

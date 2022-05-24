@@ -1,15 +1,16 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
-function AddHotel({ updateHotelCount }) {
+function AddHotel({ updateHotelList }) {
   const [item, setItem] = useState([]);
   const [buttonText, setButtonText] = useState("Ekle");
 
-  const handleButtonText = () => {
+  const handleSubmit = () => {
     setButtonText("Eklendi");
     setTimeout(() => {
       setButtonText("Ekle");
     }, 2000);
+    updateHotelList(item);
   };
 
   const addLocalStorage = () => {
@@ -32,15 +33,7 @@ function AddHotel({ updateHotelCount }) {
   return (
     <AddHotelContainer>
       <AddHotelHeader>
-        <AddButton
-          onClick={() => {
-            addLocalStorage();
-            handleButtonText();
-            updateHotelCount();
-          }}
-        >
-          {buttonText}
-        </AddButton>
+        <AddButton onClick={handleSubmit}>{buttonText}</AddButton>
         <Title>Hotel Ekle</Title>
       </AddHotelHeader>
       <Textarea

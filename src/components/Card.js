@@ -25,7 +25,7 @@ function Card({ name }) {
         <CardInfo>
           <Title>{name}</Title>
           <Score>
-            <Subtitle>{score}. Puan</Subtitle>
+            <Subtitle>{score} Puan</Subtitle>
           </Score>
           <RateContainer>
             <RateUp onClick={handleUpClick}>Puan Artır</RateUp>

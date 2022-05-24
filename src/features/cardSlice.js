@@ -9,11 +9,9 @@ export const cardSlice = createSlice({
   reducers: {
     increment: (state) => {
       state.value += 1;
-      console.log("state increasing...");
     },
     decrement: (state) => {
       state.value -= 1;
-      console.log("state decreasing...");
     },
   },
 });
