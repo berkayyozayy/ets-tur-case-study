@@ -6,6 +6,7 @@ function AddHotel({ updateHotelList }) {
   const [buttonText, setButtonText] = useState("Ekle");
   const handleSubmit = () => {
     setButtonText("Eklendi");
+    setItem("");
     setTimeout(() => {
       setButtonText("Ekle");
     }, 2000);
