@@ -80,11 +80,18 @@ function HotelList() {
     setHotels(copiedHotels);
   };
 
+  const orderByDecrease = () => {
+    let copiedHotels = [...hotels];
+    copiedHotels.sort((a, b) => b["hotelScore"] - a["hotelScore"]);
+    setHotels(copiedHotels);
+  };
+
   return (
     <List>
       <AddHotel
         updateHotelList={handleAddNewHotel}
         orderByIncrease={orderByIncrease}
+        orderByDecrease={orderByDecrease}
       />
       {hotels.length > 0 &&
         hotels.map((hotel, index) => {
@@ -98,7 +105,6 @@ function HotelList() {
                 handleThumbsUp={handleThumbsUp}
                 handleThumbsDown={handleThumbsDown}
               />
-
               <DeleteButton onClick={() => deleteHotel(hotel.id)}>
                 Delete
               </DeleteButton>

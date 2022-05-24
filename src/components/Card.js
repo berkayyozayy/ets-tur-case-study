@@ -1,13 +1,7 @@
 import styled from "styled-components";
 import image from "../assets/image.png";
-import { useDispatch, useSelector } from "react-redux";
-import { increment, decrement } from "../features/cardSlice";
-import { selectScore } from "../features/cardSlice";
 
 function Card({ name, handleThumbsUp, handleThumbsDown, index, hotelScore }) {
-  const dispatch = useDispatch();
-  const score = useSelector(selectScore);
-
   const handleUpClick = () => {
     handleThumbsUp(index);
   };
