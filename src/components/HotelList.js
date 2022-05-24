@@ -40,7 +40,6 @@ function HotelList() {
       handleDialog("", false);
     }
   };
-
   const handleAddNewHotel = (newHotel) => {
     let addedHotel = [
       {
@@ -54,18 +53,30 @@ function HotelList() {
     setHotels(updatedList);
   };
 
+  const handleThumbsUp = (idx) => {
+    let updatedHotelList = [...hotels];
+    let obj = updatedHotelList[idx];
+    let currentScore = obj["hotelScore"];
+    obj["hotelScore"] = currentScore + 1;
+    updatedHotelList[idx] = obj;
+    setHotels(updatedHotelList);
+  };
+
   return (
     <List>
       <AddHotel updateHotelList={handleAddNewHotel} />
       {hotels.length > 0 &&
-        hotels.map((hotel) => {
+        hotels.map((hotel, index) => {
           return (
             <>
               <Card
                 key={hotel.id}
                 name={hotel.name}
+                index={index}
                 hotelScore={hotel.hotelScore}
+                handleThumbsUp={handleThumbsUp}
               />
+
               <DeleteButton onClick={() => deleteHotel(hotel.id)}>
                 Delete
               </DeleteButton>

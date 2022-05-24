@@ -4,16 +4,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { increment, decrement } from "../features/cardSlice";
 import { selectScore } from "../features/cardSlice";
 
-function Card({ name }) {
+function Card({ name, handleThumbsUp, index, hotelScore }) {
   const dispatch = useDispatch();
   const score = useSelector(selectScore);
 
   const handleUpClick = () => {
-    dispatch(increment());
-  };
-
-  const handleDownClick = () => {
-    dispatch(decrement());
+    handleThumbsUp(index);
   };
 
   return (
@@ -23,7 +19,7 @@ function Card({ name }) {
         <CardInfo>
           <Title>{name}</Title>
           <Score>
-            <Subtitle>{score} Puan</Subtitle>
+            <Subtitle>{hotelScore} Puan</Subtitle>
           </Score>
           <RateContainer>
             <RateUp onClick={handleUpClick}>Puan Artır</RateUp>
