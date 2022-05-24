@@ -76,7 +76,6 @@ function HotelList() {
   const orderByIncrease = () => {
     let copiedHotels = [...hotels];
     copiedHotels.sort((a, b) => a["hotelScore"] - b["hotelScore"]);
-    //console.log(copiedHotels);
     setHotels(copiedHotels);
   };
 
