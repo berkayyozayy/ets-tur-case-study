@@ -50,6 +50,7 @@ function HotelList() {
       },
     ];
     let updatedList = addedHotel.concat(hotels);
+    localStorage.setItem("items", JSON.stringify(updatedList));
     setHotels(updatedList);
   };
 

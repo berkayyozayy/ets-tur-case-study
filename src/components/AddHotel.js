@@ -4,25 +4,12 @@ import styled from "styled-components";
 function AddHotel({ updateHotelList }) {
   const [item, setItem] = useState([]);
   const [buttonText, setButtonText] = useState("Ekle");
-
   const handleSubmit = () => {
     setButtonText("Eklendi");
     setTimeout(() => {
       setButtonText("Ekle");
     }, 2000);
     updateHotelList(item);
-  };
-
-  const addLocalStorage = () => {
-    let existingItems = JSON.parse(localStorage.getItem("items"));
-    let newItem = { name: item, score: 0, id: existingItems.length + 1 };
-    // console.log("-->>>", existingItems);
-
-    existingItems.push(newItem);
-    let input = localStorage.setItem("items", JSON.stringify(existingItems));
-    if (input) {
-      setItem(input);
-    }
   };
 
   const handleInput = (e) => {
