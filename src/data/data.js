@@ -1,9 +1,3 @@
-let hotelData = [
-  {
-    id: 0,
-    name: "test",
-    hotelScore: 0,
-  },
-];
+let hotelData = [];
 
 export default hotelData;

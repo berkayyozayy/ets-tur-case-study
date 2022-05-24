@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useRef } from "react";
 import hotelData from "../data/data";
 import Card from "./Card";
 import styled from "styled-components";

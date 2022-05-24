@@ -1,6 +1,4 @@
-import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import { AiFillCloseCircle } from "react-icons/ai";
 import image from "../assets/image.png";
 import { useDispatch, useSelector } from "react-redux";
 import { increment, decrement } from "../features/cardSlice";
@@ -31,9 +29,6 @@ function Card({ name }) {
             <RateUp onClick={handleUpClick}>Puan Artır</RateUp>
             <RateDown onClick={handleDownClick}>Puan Azalt</RateDown>
           </RateContainer>
-          <CloseIcon>
-            <AiFillCloseCircle />
-          </CloseIcon>
         </CardInfo>
       </CardContent>
     </CardContainer>
@@ -113,12 +108,6 @@ const RateDown = styled.button`
   margin-left: 8px;
   background-color: #fff;
   color: #056bfd;
-`;
-
-const CloseIcon = styled.div`
-  position: absolute;
-  top: -6px;
-  right: -5px;
 `;
 
 export default Card;
