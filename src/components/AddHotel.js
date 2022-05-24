@@ -5,6 +5,9 @@ function AddHotel({ updateHotelList }) {
   const [item, setItem] = useState([]);
   const [buttonText, setButtonText] = useState("Ekle");
   const handleSubmit = () => {
+    if (item == "") {
+      return;
+    }
     setButtonText("Eklendi");
     setItem("");
     setTimeout(() => {
