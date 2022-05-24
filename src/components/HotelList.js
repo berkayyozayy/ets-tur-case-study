@@ -73,9 +73,19 @@ function HotelList() {
     setHotels(updatedHotelList);
   };
 
+  const orderByIncrease = () => {
+    let copiedHotels = [...hotels];
+    copiedHotels.sort((a, b) => a["hotelScore"] - b["hotelScore"]);
+    //console.log(copiedHotels);
+    setHotels(copiedHotels);
+  };
+
   return (
     <List>
-      <AddHotel updateHotelList={handleAddNewHotel} />
+      <AddHotel
+        updateHotelList={handleAddNewHotel}
+        orderByIncrease={orderByIncrease}
+      />
       {hotels.length > 0 &&
         hotels.map((hotel, index) => {
           return (

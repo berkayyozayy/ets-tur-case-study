@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
-function AddHotel({ updateHotelList }) {
+function AddHotel({ updateHotelList, orderByIncrease }) {
   const [item, setItem] = useState([]);
   const [buttonText, setButtonText] = useState("Ekle");
   const handleSubmit = () => {
@@ -32,6 +32,7 @@ function AddHotel({ updateHotelList }) {
         onChange={handleInput}
         placeholder="Hotel adı giriniz..."
       ></Textarea>
+      <OrderByIncrease onClick={orderByIncrease}>Sırala</OrderByIncrease>
     </AddHotelContainer>
   );
 }
@@ -67,6 +68,15 @@ const Textarea = styled.textarea`
   resize: none;
   outline: none;
   margin-top: 8px;
+`;
+
+const OrderByIncrease = styled.button`
+  color: blue;
+  width: 50%;
+  margin-top: 16px;
+  background-color: #fff;
+  border-radius: 4px;
+  border: 1px solid #056bfd;
 `;
 
 export default AddHotel;
